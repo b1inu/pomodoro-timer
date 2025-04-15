@@ -1,0 +1,107 @@
+:root {
+    --hampton: #e5dab2;
+    --tapestry: #b46484;
+    --sandstone: #7c6c64;
+    --cascade: #84a49c;
+    --outer-space: #1c2424;
+    --soya-bean: #645c54;
+    --fuscous-gray: #544c44;
+    --tuatara: #2f2f2c;
+    --armadillo: #3c3c34;
+    --green-kelp: #283824;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--outer-space);
+    color: var(--hampton);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #app {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--tuatara);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  #session-label {
+    font-size: 24px;
+    color: var(--cascade);
+    margin-bottom: 10px;
+  }
+  
+  #timer {
+    font-size: 72px;
+    margin: 20px 0;
+    color: var(--hampton);
+  }
+  
+  .controls button {
+    padding: 12px 24px;
+    margin: 0 10px;
+    font-size: 18px;
+    background-color: var(--sandstone);
+    color: var(--hampton);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .controls button:hover {
+    background-color: var(--fuscous-gray);
+  }
+  
+  #pomodoro-count {
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--tapestry);
+  }
+
+  #progress-ring {
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  
+  #progress-ring svg {
+    transform: rotate(-90deg);
+  }
+  
+  #progress-ring circle {
+    transition: stroke-dashoffset 1s linear;
+  }
+  
+  #progress {
+    stroke-dasharray: 565.48; /* 2πr = 2 * π * 90 ≈ 565.48 */
+    stroke-dashoffset: 0;
+  }
+
+  /* Timer Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  #timer.animate {
+    animation: pulse 1s ease-in-out;
+  }
+  

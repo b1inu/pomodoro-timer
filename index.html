@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app" >
+    <div id="progress-ring">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="90" stroke="var(--cascade)" stroke-width="12" fill="none" />
+          <circle id="progress" cx="100" cy="100" r="90" stroke="var(--tapestry)" stroke-width="12" fill="none" stroke-linecap="round" />
+        </svg>
+    </div>
+    
+    <h2 id="session-label">Focus Time</h2>
+    <div id="timer">25:00</div>
+    <div class="controls">
+      <button id="start-btn">Start</button
+      <button id="reset-btn">Reset</button>
+    </div>
+    <div id="pomodoro-count">Pomodoros Completed: 0</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
