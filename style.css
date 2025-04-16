@@ -175,15 +175,22 @@
   }
   
   body.light .controls button,
-  body.light .settings-button,
   body.light #theme-toggle,
   body.light #toggle-settings {
     background-color: var(--indian-khaki);
     color: var(--mine-shaft);
   }
+
+  body.light .settings-button {
+    background-color: var(--donkey-brown);
+    color: var(--mine-shaft);
+  }
+
+  body.light .settings-button:hover {
+    background-color: var(--bandicoot);
+  }
   
   body.light .controls button:hover,
-  body.light .settings-button:hover,
   body.light #theme-toggle:hover,
   body.light #toggle-settings:hover {
     background-color: var(--donkey-brown);
