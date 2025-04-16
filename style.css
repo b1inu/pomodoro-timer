@@ -1,215 +1,166 @@
 :root {
-    --bandicoot: #837f6a;
-    --ironside-gray: #67665d;
-    --mine-shaft: #383535;
-    --chicago: #5c5c54;
-    --hampton: #e5d6af;
-    --donkey-brown: #a19474;
-    --donkey-brown: #a89c7c;
-    --mongoose: #b4a484;
-    --indian-khaki: #c1b18f;
-    --yuma: #ccbc94;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--mine-shaft);
-    color: var(--hampton);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: all 0.3s ease;
-  }
-  
-  #app {
-    text-align: center;
-    padding: 40px;
-    background-color: var(--chicago);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: 90%;
-    max-width: 400px;
-    transition: all 0.3s ease;
-  }
-  
-  #session-label {
-    font-size: 24px;
-    color: var(--yuma);
-    margin-bottom: 10px;
-  }
-  
-  #progress-ring {
-    margin: 0 auto;
-    position: relative;
-    width: 200px;
-    height: 200px;
-  }
-  
-  #progress-ring svg {
-    transform: rotate(-90deg);
-  }
-  
-  #progress-ring circle {
-    transition: stroke-dashoffset 1s linear;
-  }
-  
-  #progress {
-    stroke: var(--hampton);
-    stroke-dasharray: 565.48;
-    stroke-dashoffset: 0;
-  }
-  
-  #timer {
-    font-size: 72px;
-    margin: 20px 0;
-    color: var(--hampton);
-  }
-  
-  .controls button {
-    padding: 12px 24px;
-    margin: 0 10px;
-    font-size: 18px;
-    background-color: var(--bandicoot);
-    color: var(--hampton);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .controls button:hover {
-    background-color: var(--ironside-gray);
-  }
-  
-  #pomodoro-count {
-    margin-top: 20px;
-    font-size: 16px;
-    color: var(--yuma);
-  }
-  
-  #toggle-settings,
-  #theme-toggle {
-    margin-top: 20px;
-    background-color: var(--mongoose);
-    color: var(--mine-shaft);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  #toggle-settings:hover,
-  #theme-toggle:hover {
-    background-color: var(--indian-khaki);
-  }
-  
-  #settings-panel {
-    display: none;
-    margin-top: 20px;
-    background-color: var(--ironside-gray);
-    padding: 20px;
-    border-radius: 8px;
-    color: var(--hampton);
-  }
-  
-  #settings-panel label {
-    font-size: 16px;
-  }
-  
-  #settings-panel input {
-    width: 60px;
-    padding: 5px;
-    font-size: 16px;
-    margin-left: 10px;
-    background-color: var(--chicago);
-    color: var(--hampton);
-    border: 1px solid var(--bandicoot);
-    border-radius: 4px;
-  }
-  
-  .settings-button {
-    margin-top: 10px;
-    background-color: var(--donkey-brown);
-    color: var(--mine-shaft);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .settings-button:hover {
-    background-color: var(--bandicoot);
-  }
-  
-  /* Timer Pulse Animation */
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-  
-  #timer.animate {
-    animation: pulse 1s ease-in-out;
-  }
-  
-  /* --- Light Theme Invert --- */
-  body.light {
-    background-color: var(--hampton);
-    color: var(--mine-shaft);
-  }
-  
-  body.light #app {
-    background-color: var(--mongoose);
-  }
-  
-  body.light #session-label,
-  body.light #timer,
-  body.light #pomodoro-count {
-    color: var(--mine-shaft);
-  }
-  
-  body.light .controls button,
-  body.light #theme-toggle,
-  body.light #toggle-settings {
-    background-color: var(--indian-khaki);
-    color: var(--mine-shaft);
-  }
+  --bandicoot: #837f6a;
+  --ironside-gray: #67665d;
+  --mine-shaft: #383535;
+  --chicago: #5c5c54;
+  --hampton: #e5d6af;
+  --donkey-brown: #a89c7c;
+  --mongoose: #b4a484;
+  --indian-khaki: #c1b18f;
+  --yuma: #ccbc94;
 
-  body.light .settings-button {
-    background-color: var(--donkey-brown);
-    color: var(--mine-shaft);
-  }
+  --cascade: #b4a484;
+  --tapestry: #a89c7c;
+}
 
-  body.light .settings-button:hover {
-    background-color: var(--bandicoot);
-  }
-  
-  body.light .controls button:hover,
-  body.light #theme-toggle:hover,
-  body.light #toggle-settings:hover {
-    background-color: var(--donkey-brown);
-  }
-  
-  body.light #settings-panel {
-    background-color: var(--indian-khaki);
-  }
-  
-  body.light #settings-panel label {
-        color: var(--mine-shaft);
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body.light #settings-panel input {
-    background-color: var(--bandicoot);
-    color: var(--mine-shaft);
-    border: 1px solid var(--mine-shaft);
-  }
-  
-  body.light #progress {
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--hampton);
+  color: var(--mine-shaft);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  text-align: center;
+  padding: 40px;
+  background-color: var(--mongoose);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+}
+
+#session-label {
+  font-size: 24px;
+  color: var(--mine-shaft);
+  margin-bottom: 10px;
+}
+
+#progress-ring {
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+#progress-ring svg {
+  transform: rotate(-90deg);
+}
+
+#progress-ring circle {
+  transition: stroke-dashoffset 1s linear;
+}
+
+#progress {
+  stroke-dasharray: 565.48;
+  stroke-dashoffset: 0;
   stroke: var(--mine-shaft);
+}
+
+#timer {
+  font-size: 72px;
+  margin: 20px 0;
+  color: var(--mine-shaft);
+}
+
+.controls button {
+  padding: 12px 24px;
+  margin: 0 10px;
+  font-size: 18px;
+  background-color: var(--donkey-brown);
+  color: var(--mine-shaft);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: var(--bandicoot);
+}
+
+#pomodoro-count {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--mine-shaft);
+}
+
+#toggle-settings {
+  margin-top: 20px;
+  background-color: var(--indian-khaki);
+  color: var(--mine-shaft);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#toggle-settings:hover {
+  background-color: var(--donkey-brown);
+}
+
+#settings-panel {
+  display: none;
+  margin-top: 20px;
+  background-color: var(--yuma);
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--mine-shaft);
+}
+
+#settings-panel label {
+  font-size: 16px;
+}
+
+#settings-panel input {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: var(--bandicoot);
+  color: var(--mine-shaft);
+  border: 1px solid var(--mine-shaft);
+  border-radius: 4px;
+}
+
+.settings-button {
+  margin-top: 10px;
+  background-color: var(--donkey-brown);
+  color: var(--mine-shaft);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.settings-button:hover {
+  background-color: var(--bandicoot);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+#timer.animate {
+  animation: pulse 1s ease-in-out;
 }

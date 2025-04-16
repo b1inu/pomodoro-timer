@@ -6,7 +6,8 @@
   <title>Pomodoro Timer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="light">
+  <canvas id="bg"></canvas>
 
   <div id="app">
     <h2 id="session-label">Focus Time</h2>
@@ -28,7 +29,6 @@
     <div id="pomodoro-count">Pomodoros Completed: 0</div>
 
     <button id="toggle-settings">⚙️ Settings</button>
-    <button id="theme-toggle">🌙 Toggle Theme</button>
 
     <div id="settings-panel">
       <label>Focus Duration (mins):
@@ -44,6 +44,7 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
