@@ -1,21 +1,52 @@
-// --- THREE.JS BACKGROUND SETUP ---
+ // --- THREE.JS BACKGROUND SETUP ---
 const canvas = document.getElementById('bg');
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-camera.position.z = 5;
+camera.position.z = 10;
 
-const geometry = new THREE.SphereGeometry(0.1, 16, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+// BUBBLE PARTICLES
+const bubbleCount = 60;
+const bubbles = [];
+
+for (let i = 0; i < bubbleCount; i++) {
+  const radius = Math.random() * 0.15 + 0.05;
+  const geometry = new THREE.SphereGeometry(radius, 16, 16);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.15 + Math.random() * 0.2,
+  });
+
+  const bubble = new THREE.Mesh(geometry, material);
+  bubble.position.set(
+    (Math.random() - 0.5) * 20,
+    Math.random() * 10,
+    (Math.random() - 0.5) * 10
+  );
+  scene.add(bubble);
+  bubbles.push(bubble);
+}
 
 function animate() {
   requestAnimationFrame(animate);
-  sphere.rotation.x += 0.01;
-  sphere.rotation.y += 0.01;
+
+  bubbles.forEach(b => {
+    b.position.y += 0.01 * (0.5 + Math.random() * 0.5);
+    if (b.position.y > 10) {
+      b.position.y = -5;
+      b.position.x = (Math.random() - 0.5) * 20;
+      b.position.z = (Math.random() - 0.5) * 10;
+    }
+  });
+
   renderer.render(scene, camera);
 }
 animate();
