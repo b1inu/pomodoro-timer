@@ -1,4 +1,4 @@
- // --- THREE.JS BACKGROUND SETUP ---
+// --- THREE.JS BACKGROUND SETUP ---
 const canvas = document.getElementById('bg');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -12,17 +12,17 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 camera.position.z = 10;
 
-// BUBBLE PARTICLES
+// --- BUBBLE PARTICLES (KOI POND STYLE) ---
 const bubbleCount = 60;
 const bubbles = [];
 
 for (let i = 0; i < bubbleCount; i++) {
-  const radius = Math.random() * 0.15 + 0.05;
-  const geometry = new THREE.SphereGeometry(radius, 16, 16);
+  const radius = Math.random() * 0.15 + 0.03;
+  const geometry = new THREE.SphereGeometry(radius, 12, 12);
   const material = new THREE.MeshBasicMaterial({
     color: 0xffffff,
     transparent: true,
-    opacity: 0.15 + Math.random() * 0.2,
+    opacity: 0.25 + Math.random() * 0.2,
   });
 
   const bubble = new THREE.Mesh(geometry, material);
@@ -31,15 +31,43 @@ for (let i = 0; i < bubbleCount; i++) {
     Math.random() * 10,
     (Math.random() - 0.5) * 10
   );
+  bubble.userData.speed = 0.002 + Math.random() * 0.01;
   scene.add(bubble);
   bubbles.push(bubble);
 }
 
+// KOI IMAGE SETUP
+const loader = new THREE.TextureLoader();
+loader.load(
+  'assets/koi-black.png',
+  texture => {
+    console.log('✅ Koi texture loaded');
+
+    const koi = new THREE.Mesh(
+      new THREE.PlaneGeometry(10, 10), // SUPER BIG
+      new THREE.MeshBasicMaterial({
+        map: texture,
+        transparent: true,
+        opacity: 1.0,
+        side: THREE.DoubleSide, // shows both sides
+      })
+    );
+    koi.position.set(0, 0, 0); // Right on top of everything
+    scene.add(koi);
+  },
+  undefined,
+  err => console.error('❌ Failed to load koi texture:', err)
+);
+
+
+
+
+// --- ANIMATE LOOP ---
 function animate() {
   requestAnimationFrame(animate);
 
   bubbles.forEach(b => {
-    b.position.y += 0.01 * (0.5 + Math.random() * 0.5);
+    b.position.y += b.userData.speed;
     if (b.position.y > 10) {
       b.position.y = -5;
       b.position.x = (Math.random() - 0.5) * 20;
