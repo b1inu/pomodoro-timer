@@ -1,0 +1,166 @@
+:root {
+  --bandicoot: #837f6a;
+  --ironside-gray: #67665d;
+  --mine-shaft: #383535;
+  --chicago: #5c5c54;
+  --hampton: #e5d6af;
+  --donkey-brown: #a89c7c;
+  --mongoose: #b4a484;
+  --indian-khaki: #c1b18f;
+  --yuma: #ccbc94;
+
+  --cascade: #b4a484;
+  --tapestry: #a89c7c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--hampton);
+  color: var(--mine-shaft);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  text-align: center;
+  padding: 40px;
+  background-color: var(--mongoose);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+}
+
+#session-label {
+  font-size: 24px;
+  color: var(--mine-shaft);
+  margin-bottom: 10px;
+}
+
+#progress-ring {
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+#progress-ring svg {
+  transform: rotate(-90deg);
+}
+
+#progress-ring circle {
+  transition: stroke-dashoffset 1s linear;
+}
+
+#progress {
+  stroke-dasharray: 565.48;
+  stroke-dashoffset: 0;
+  stroke: var(--mine-shaft);
+}
+
+#timer {
+  font-size: 72px;
+  margin: 20px 0;
+  color: var(--mine-shaft);
+}
+
+.controls button {
+  padding: 12px 24px;
+  margin: 0 10px;
+  font-size: 18px;
+  background-color: var(--donkey-brown);
+  color: var(--mine-shaft);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: var(--bandicoot);
+}
+
+#pomodoro-count {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--mine-shaft);
+}
+
+#toggle-settings {
+  margin-top: 20px;
+  background-color: var(--indian-khaki);
+  color: var(--mine-shaft);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#toggle-settings:hover {
+  background-color: var(--donkey-brown);
+}
+
+#settings-panel {
+  display: none;
+  margin-top: 20px;
+  background-color: var(--yuma);
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--mine-shaft);
+}
+
+#settings-panel label {
+  font-size: 16px;
+}
+
+#settings-panel input {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: var(--bandicoot);
+  color: var(--mine-shaft);
+  border: 1px solid var(--mine-shaft);
+  border-radius: 4px;
+}
+
+.settings-button {
+  margin-top: 10px;
+  background-color: var(--donkey-brown);
+  color: var(--mine-shaft);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.settings-button:hover {
+  background-color: var(--bandicoot);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+#timer.animate {
+  animation: pulse 1s ease-in-out;
+}
