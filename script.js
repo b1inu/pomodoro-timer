@@ -36,28 +36,28 @@ for (let i = 0; i < bubbleCount; i++) {
   bubbles.push(bubble);
 }
 
-// KOI IMAGE SETUP
-const loader = new THREE.TextureLoader();
-loader.load(
-  'assets/koi-black.png',
-  texture => {
-    console.log('✅ Koi texture loaded');
+// // KOI IMAGE SETUP
+// const loader = new THREE.TextureLoader();
+// loader.load(
+//   'assets/koi-black.png',
+//   texture => {
+//     console.log('✅ Koi texture loaded');
 
-    const koi = new THREE.Mesh(
-      new THREE.PlaneGeometry(10, 10), // SUPER BIG
-      new THREE.MeshBasicMaterial({
-        map: texture,
-        transparent: true,
-        opacity: 1.0,
-        side: THREE.DoubleSide, // shows both sides
-      })
-    );
-    koi.position.set(0, 0, 0); // Right on top of everything
-    scene.add(koi);
-  },
-  undefined,
-  err => console.error('❌ Failed to load koi texture:', err)
-);
+//     const koi = new THREE.Mesh(
+//       new THREE.PlaneGeometry(10, 10), // SUPER BIG
+//       new THREE.MeshBasicMaterial({
+//         map: texture,
+//         transparent: true,
+//         opacity: 1.0,
+//         side: THREE.DoubleSide, // shows both sides
+//       })
+//     );
+//     koi.position.set(0, 0, 0); // Right on top of everything
+//     scene.add(koi);
+//   },
+//   undefined,
+//   err => console.error('❌ Failed to load koi texture:', err)
+// );
 
 
 
